@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.navber {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    height: 60px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: rgb(139, 15, 15);
+}
+
+.Terrain {
+    background-image: url('./../images/stadium_background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 58%;
+    margin: 30px 0 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main {
+    display: flex;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.links-bar {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.img-logo {
+    width: 140px;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 600px;
+    margin: 30px 20px 30px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.form-group {
+    width: 40%;
+}
+
+label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+select {
+    width: 100%;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #d40707;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #6b1212;
+}
+
+#playerForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.Attaque,.garde, .Defense, .milieu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    /* border: 1px solid red; */
+}
+.Attaque div{
+    text-align: center;
+    width: 33%;
+    /* border: 1px solid red; */
+    height: 100px;
+}
+.Defense div{
+    text-align: center;
+    width: 24%;
+    /* border: 1px solid red; */
+    height: 100px;
+}
+.garde div{
+    text-align: center;
+    width: 33%;
+    /* border: 1px solid red; */
+    height: 100px;
+}
+.milieu div{
+    text-align: center;
+    width: 33%;
+    /* border: 1px solid red; */
+    height: 100px;
+}
+
+.player-item {
+    margin: 5px;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.Attaque div, .Defense div, .milieu div, .garde div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.Attaque, .milieu, .Defense, .garde {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* .Attaque {
+    background: rgba(255, 0, 0, 0.5);
+}
+
+.milieu {
+    background: rgba(0, 255, 0, 0.5);
+}
+
+.Defense {
+    background: rgba(0, 0, 255, 0.5);
+}
+
+.garde {
+    background: rgba(0, 255, 255, 0.5);
+} */
+
+.player-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 140px !important;
+    height: 100px !important;
+}
+
+.Joueurs_de_reserve {
+    border-top: 2px solid #ccc;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* تنسيق footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0 0 0;
+    text-align: center;
+}
+
+/* تنسيق الأعمدة داخل footer */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* تنسيق العمود */
+.footer-column {
+    margin: 20px;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* تنسيق العناوين */
+.footer-column h4 {
+    font-size: 18px;
+    color: #f1c40f;
+}
+
+/* تنسيق الروابط */
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    color: #f1c40f;
+}
+
+/* تنسيق الأيقونات الاجتماعية */
+.footer-social a {
+    margin: 0 10px;
+}
+
+.footer-social img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+}
+
+/* الجزء السفلي */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 12px;
+    background-color: #2c3e50;
+    padding: 10px 0;
+}
+
+.footer-bottom p {
+    margin: 0;
+}

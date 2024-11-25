@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Gestion des joueurs</title>
+</head>
+<body>
+    <nav class="navber">
+        <div class="Logo">
+            <img class="img-logo" src="images/EAFC25-logo.png" alt="Logo du jeu">
+        </div>
+    </nav>
+    
+    <main>
+        <div class="main">
+            <div class="Terrain">
+                <!-- 3 défenseurs -->
+                <div class="Attaque">
+                </div>
+    
+                <!-- 4 milieux -->
+                <div class="milieu">
+                </div>
+    
+                <!-- 4 attaquants -->
+                <div class="Defense">
+                </div>
+    
+                <!-- gardien -->
+                <div class="garde">
+                </div>
+            </div>
+            <div class="container">
+                <form id="playerForm">
+                    <h1>Entrez les informations du joueur</h1>
+                    <div class="form-group">
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="name" placeholder="Entrez le nom du joueur" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">URL de la photo :</label>
+                        <input class="wid" type="url" id="photo" name="photo" placeholder="Entrez l'URL de la photo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="position">Position :</label>
+                        <select class="wid" id="position" name="position" required>
+                            <option value="">Sélectionner la position</option>
+                            <option value="RW">Ailier droit</option>
+                            <option value="LW">Ailier gauche</option>
+                            <option value="CF">Attaquant central</option>
+                            <option value="CM">Milieu central</option>
+                            <option value="CB">Défenseur central</option>
+                            <option value="GK">Gardien de but</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationalité :</label>
+                        <input type="text" id="Nationality" name="Nationality" placeholder="Entrez la nationalité" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="flag">URL du drapeau :</label>
+                        <input type="url" id="flag" name="flag" placeholder="Entrez l'URL du drapeau" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="club">Club :</label>
+                        <input type="text" id="club" name="club" placeholder="Entrez le nom du club" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="logo">URL du logo du club :</label>
+                        <input type="url" id="logo" name="logo" placeholder="Entrez l'URL du logo du club" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Note :</label>
+                        <input type="number" id="rating" name="rating" min="0" max="100" placeholder="Entrez la note" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pace">Vitesse :</label>
+                        <input type="number" id="pace" name="pace" min="0" max="100" placeholder="Entrez la vitesse" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="shooting">Tir :</label>
+                        <input type="number" id="shooting" name="shooting" min="0" max="100" placeholder="Entrez le tir" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passing">Passe :</label>
+                        <input type="number" id="passing" name="passing" min="0" max="100" placeholder="Entrez la passe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dribbling">Dribble :</label>
+                        <input type="number" id="dribbling" name="dribbling" min="0" max="100" placeholder="Entrez le dribble" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="defending">Défense :</label>
+                        <input type="number" id="defending" name="defending" min="0" max="100" placeholder="Entrez la défense" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="physical">Physique :</label>
+                        <input type="number" id="physical" name="physical" min="0" max="100" placeholder="Entrez le physique" required>
+                    </div>
+                    <button type="submit">Ajouter</button>
+                </form>
+            </div>
+        </div>
+        <div class="Joueurs_de_reserve">
+            
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>À propos de nous</h4>
+                <p>Ce site permet aux utilisateurs de créer et de gérer des équipes de football.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Joueurs</a></li>
+                    <li><a href="#">Équipes</a></li>
+                    <li><a href="#">Contactez-nous</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Suivez-nous</h4>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                    <a href="#" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a>
+                    <a href="#" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Football Manager - Tous droits réservés</p>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
