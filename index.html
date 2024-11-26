@@ -41,7 +41,34 @@
                     </div>
                     <div class="form-group">
                         <label for="photo">URL de la photo :</label>
-                        <input class="wid" type="url" id="photo" name="photo" placeholder="Entrez l'URL de la photo" required>
+                        <select id="photo">
+                            <option value="https://cdn.sofifa.net/players/158/023/25_120.png">Lionel Messi</option>
+                            <option value="https://cdn.sofifa.net/players/020/801/25_120.png">Cristiano Ronaldo</option>
+                            <option value="https://cdn.sofifa.net/players/192/985/25_120.png">Kevin De Bruyne</option>
+                            <option value="https://cdn.sofifa.net/players/231/747/25_120.png">Kylian Mbappé</option>
+                            <option value="https://cdn.sofifa.net/players/203/376/25_120.png">Virgil van Dijk</option>
+                            <option value="https://cdn.sofifa.net/players/205/452/25_120.png">Antonio Rudiger</option>
+                            <option value="https://cdn.sofifa.net/players/190/871/25_120.png">Neymar Jr</option>
+                            <option value="https://cdn.sofifa.net/players/192/985/25_120.png">Mohamed Salah</option>
+                            <option value="https://cdn.sofifa.net/players/212/622/25_120.png">Joshua Kimmich</option>
+                            <option value="https://cdn.sofifa.net/players/200/389/25_120.png">Jan Oblak</option>
+                            <option value="https://cdn.sofifa.net/players/177/003/25_120.png">Luka Modrić</option>
+                            <option value="https://cdn.sofifa.net/players/238/794/25_120.png">Vinicius Junior</option>
+                            <option value="https://cdn.sofifa.net/players/231/410/25_120.png">Brahim Diáz</option>
+                            <option value="https://cdn.sofifa.net/players/165/153/25_120.png">Karim Benzema</option>
+                            <option value="https://cdn.sofifa.net/players/239/085/25_120.png">Erling Haaland</option>
+                            <option value="https://cdn.sofifa.net/players/215/914/25_120.png">N'Golo Kanté</option>
+                            <option value="https://cdn.sofifa.net/players/234/396/25_120.png">Alphonso Davies</option>
+                            <option value="https://cdn.sofifa.net/players/209/981/25_120.png">Yassine Bounou</option>
+                            <option value="https://cdn.sofifa.net/players/212/198/25_120.png">Bruno Fernandes</option>
+                            <option value="https://cdn.sofifa.net/players/233/049/25_120.png">Jadon Sancho</option>
+                            <option value="https://cdn.sofifa.net/players/231/281/25_120.png">Trent Alexander-Arnold</option>
+                            <option value="https://cdn.sofifa.net/players/235/212/25_120.png">Achraf Hakimi</option>
+                            <option value="https://cdn.sofifa.net/players/235/410/25_120.png">Youssef En-Nesyri</option>
+                            <option value="https://cdn.sofifa.net/players/236/401/25_120.png">Noussair Mazraoui</option>
+                            <option value="https://cdn.sofifa.net/players/259/480/25_120.png">Ismael Saibari</option>
+                            <option value="https://cdn.sofifa.net/players/230/621/25_120.png">Gianluigi Donnarumma</option>
+                          </select>                          
                     </div>
                     <div class="form-group">
                         <label for="position">Position :</label>
@@ -75,39 +102,89 @@
                         <label for="rating">Note :</label>
                         <input type="number" id="rating" name="rating" min="0" max="100" placeholder="Entrez la note" required>
                     </div>
-                    <div class="form-group">
-                        <label for="pace">Vitesse :</label>
-                        <input type="number" id="pace" name="pace" min="0" max="100" placeholder="Entrez la vitesse" required>
+                    <div id="playerForm" class="joueur">
+                        <div class="form-group">
+                            <label for="pace">Vitesse :</label>
+                            <input type="number" id="pace" name="pace" min="0" max="100" placeholder="Entrez la vitesse" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="shooting">Tir :</label>
+                            <input type="number" id="shooting" name="shooting" min="0" max="100" placeholder="Entrez le tir" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="passing">Passe :</label>
+                            <input type="number" id="passing" name="passing" min="0" max="100" placeholder="Entrez la passe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dribbling">Dribble :</label>
+                            <input type="number" id="dribbling" name="dribbling" min="0" max="100" placeholder="Entrez le dribble" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="defending">Défense :</label>
+                            <input type="number" id="defending" name="defending" min="0" max="100" placeholder="Entrez la défense" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="physical">Physique :</label>
+                            <input type="number" id="physical" name="physical" min="0" max="100" placeholder="Entrez le physique" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="shooting">Tir :</label>
-                        <input type="number" id="shooting" name="shooting" min="0" max="100" placeholder="Entrez le tir" required>
+                    <div id="playerForm" class="gardiyan" style="display: none;">
+                        <div class="form-group">
+                            <label for="diving">diving :</label>
+                            <input type="number" id="diving" name="diving" min="0" max="100" placeholder="Entrez la diving">
+                        </div>
+                        <div class="form-group">
+                            <label for="handling">handling :</label>
+                            <input type="number" id="handling" name="handling" min="0" max="100" placeholder="Entrez le handling">
+                        </div>
+                        <div class="form-group">
+                            <label for="kicking">kicking :</label>
+                            <input type="number" id="kicking" name="kicking" min="0" max="100" placeholder="Entrez la kicking">
+                        </div>
+                        <div class="form-group">
+                            <label for="reflexes">reflexes :</label>
+                            <input type="number" id="reflexes" name="reflexes" min="0" max="100" placeholder="Entrez le reflexes">
+                        </div>
+                        <div class="form-group">
+                            <label for="speed">speed :</label>
+                            <input type="number" id="speed" name="speed" min="0" max="100" placeholder="Entrez la speed">
+                        </div>
+                        <div class="form-group">
+                            <label for="positioning">positioning :</label>
+                            <input type="number" id="positioning" name="positioning" min="0" max="100" placeholder="Entrez le positioning">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="passing">Passe :</label>
-                        <input type="number" id="passing" name="passing" min="0" max="100" placeholder="Entrez la passe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="dribbling">Dribble :</label>
-                        <input type="number" id="dribbling" name="dribbling" min="0" max="100" placeholder="Entrez le dribble" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="defending">Défense :</label>
-                        <input type="number" id="defending" name="defending" min="0" max="100" placeholder="Entrez la défense" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="physical">Physique :</label>
-                        <input type="number" id="physical" name="physical" min="0" max="100" placeholder="Entrez le physique" required>
-                    </div>
-                    <button type="submit">Ajouter</button>
+                    <button class="btn" type="submit">Ajouter</button>
                 </form>
             </div>
         </div>
         <div class="Joueurs_de_reserve">
             
         </div>
+        <div id="editForm" style="display:none;">
+            <label for="editPace">Pace:</label>
+            <input type="number" id="editPace">
+            
+            <label for="editShooting">Shooting:</label>
+            <input type="number" id="editShooting">
+            
+            <label for="editPassing">Passing:</label>
+            <input type="number" id="editPassing">
+            
+            <label for="editDribbling">Dribbling:</label>
+            <input type="number" id="editDribbling">
+            
+            <label for="editDefending">Defending:</label>
+            <input type="number" id="editDefending">
+            
+            <label for="editPhysical">Physical:</label>
+            <input type="number" id="editPhysical">
+            
+            <button id="saveChanges">Save Changes</button>
+            <button id="cancelChanges">Cancel</button>
+        </div>
     </main>
-
+    
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
