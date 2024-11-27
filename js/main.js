@@ -12,6 +12,13 @@ positionSelect.addEventListener('click', function () {
     }
 });
 
+let playerCounts = {
+    'Attaque': 0,
+    'milieu': 0,
+    'Defense': 0,
+    'garde': 0
+};
+
 document.getElementById("playerForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -49,13 +56,6 @@ const maxPlayers = {
     'milieu': 3,
     'Defense': 4,
     'garde': 1
-};
-
-let playerCounts = {
-    'Attaque': 0,
-    'milieu': 0,
-    'Defense': 0,
-    'garde': 0
 };
 
 function displayPlayerData(playerData) {
