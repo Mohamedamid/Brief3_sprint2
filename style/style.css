@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* border: 1px solid red; */
 }
 
 body {
@@ -88,7 +87,7 @@ select {
     width: 100%;
 }
 
-button {
+.btn {
     width: 80%;
     padding: 10px;
     margin: 10px;
@@ -129,12 +128,32 @@ button:hover {
 
 .player-item{
     display: flex;
+    
+    justify-content: center;
+    align-items: start;
+    width: 140px !important;
+    height: 170px !important;
+    text-align: center;
+}
+
+.info{
+    margin-left: 32px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 140px !important;
     height: 170px !important;
     text-align: center;
+}
+
+.action{
+    display: flex;
+    flex-direction: column;
+    margin:0 0 60px 15px;
+    height: 45px !important;
+    justify-content: space-between !important;
+    align-items: end;
 }
 
 .player-item:hover{
@@ -255,7 +274,7 @@ strong{
     margin-top: 10px;
 }
 
-#editForm {
+/* #editForm {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -281,4 +300,4 @@ strong{
 
 #editForm button:hover {
     background-color: #45a049;
-}
+} */
