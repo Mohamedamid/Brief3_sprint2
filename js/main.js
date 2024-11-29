@@ -12,13 +12,6 @@ positionSelect.addEventListener('click', function () {
     }
 });
 
-let playerCounts = {
-    'Attaque': 0,
-    'milieu': 0,
-    'Defense': 0,
-    'garde': 0
-};
-
 document.getElementById("playerForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -38,66 +31,97 @@ document.getElementById("playerForm").addEventListener("submit", function(event)
         defending: document.getElementById("defending").value,
         physical: document.getElementById("physical").value,
 
-        diving: document.getElementById("pace").value,
-        handling: document.getElementById("shooting").value,
-        kicking: document.getElementById("passing").value,
-        reflexes: document.getElementById("dribbling").value,
-        speed: document.getElementById("defending").value,
-        positioning: document.getElementById("physical").value,
+        diving: document.getElementById("diving").value,
+        handling: document.getElementById("handling").value,
+        kicking: document.getElementById("kicking").value,
+        reflexes: document.getElementById("reflexes").value,
+        speed: document.getElementById("speed").value,
+        positioning: document.getElementById("positioning").value,
     };
 
     displayPlayerData(playerData);
-
     document.getElementById("playerForm").reset();
+
 });
 
+let playerCounts = {
+    'RW':0,
+    'LW':0,
+    'CF':0,
+    'CM': 0,
+    'LB':0,
+    'RB':0,
+    'CB1':0,
+    'CB2':0,
+    'GK': 0
+};
 const maxPlayers = {
-    'Attaque': 3,
-    'milieu': 3,
-    'Defense': 4,
-    'garde': 1
+    'RW':1,
+    'LW':1,
+    'CF':1,
+    'CM': 3,
+    'LB':1,
+    'RB':1,
+    'CB1':1,
+    'CB2':1,
+    'GK': 1
 };
 
 function displayPlayerData(playerData) {
     const position = playerData.position;
     let positionClass = '';
     let backgroundImage = '';
-    
     switch (position) {
         case 'RW':
+            positionClass = 'RW';
+            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            break;
         case 'LW':
+            positionClass = 'LW';
+            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            break;
         case 'CF':
-            positionClass = 'Attaque';
+            positionClass = 'CF';
             backgroundImage = 'url("./images/badge_ballon_dor.webp")';
             break;
         case 'CM':
-        case 'CDM':
-            positionClass = 'milieu';
+            positionClass = 'CM';
             backgroundImage = 'url("./images/badge_gold.webp")';
             break;
-        case 'CB':
-            positionClass = 'Defense';
+        case 'CB1':
+            positionClass = 'CB1';
+            backgroundImage = 'url("./images/gold87.png")';
+            break;
+        case 'CB2':
+            positionClass = 'CB2';
+            backgroundImage = 'url("./images/gold87.png")';
+            break;
+        case 'LB':
+            positionClass = 'LB';
+            backgroundImage = 'url("./images/gold87.png")';
+            break;
+        case 'RB':
+            positionClass = 'RB';
             backgroundImage = 'url("./images/gold87.png")';
             break;
         case 'GK':
-            positionClass = 'garde';
+            positionClass = 'GK';
             backgroundImage = 'url("./images/badge_total_rush.webp")';
             break;
         default:
             alert('Position non valide');
             return;
     }
-
-    if (playerCounts[positionClass] >= maxPlayers[positionClass]) {
+    
+    if (playerCounts[positionClass] >= maxPlayers[positionClass]){
         addPlayerToReserve(playerData);
         return;
     }
 
     const positionDiv = document.querySelector(`.${positionClass}`);
 
-    const playerElement = document.createElement("div");
+    let playerElement = document.createElement("div");
     playerElement.classList.add("player-item");
-    playerElement.setAttribute("onclick", "modifier(event)");
 
     playerElement.style.backgroundImage = backgroundImage;
     playerElement.style.backgroundSize = 'cover';
@@ -105,49 +129,11 @@ function displayPlayerData(playerData) {
     playerElement.style.backgroundRepeat = 'no-repeat';
 
     if (positionSelect.value === 'GK') {
-        playerElement.innerHTML = `
-        <div class="info">
-        <img class="photo_joueur" src="${playerData.photo}" alt="" width="50" height="50">
-        <strong>${playerData.name}</strong>
-        <div class="information_joueur">
-        <p>DIV<span> ${playerData.diving}</span></p>
-        <p>HAN<span> ${playerData.handling}</span></p>
-        <p>KIC<span> ${playerData.kicking}</span></p>
-        <p>REF<span> ${playerData.reflexes}</span></p>
-        <p>SPE<span> ${playerData.speed}</span></p>
-        <p>POS<span> ${playerData.positioning}</span></p>
-        </div>
-        <strong class="position_joueur">${playerData.position}</strong>
-        </div>
-        <div class="action">
-        <i class="fa-solid fa-trash" onclick="deleteT(event)"></i>
-        <i class="fa-solid fa-pen-to-square" onclick="edit_GK(event)"></i>
-        </div>
-    `;
+        createGK(playerElement, playerData);
     } else {
-        playerElement.innerHTML = `
-        <div class="info">
-        <img class="photo_joueur" src="${playerData.photo}" alt="" width="50" height="50">
-        <strong>${playerData.name}</strong>
-        <div class="information_joueur">
-        <p>PAC<span> ${playerData.pace}</span></p>
-        <p>SHO<span> ${playerData.shooting}</span></p>
-        <p>PAS<span> ${playerData.passing}</span></p>
-        <p>DRI<span> ${playerData.dribbling}</span></p>
-        <p>DEF<span> ${playerData.defending}</span></p>
-        <p>PHY<span> ${playerData.physical}</span></p>
-        </div>
-        <strong class="position_joueur">${playerData.position}</strong>
-        </div>
-        <div class="action">
-        <i class="fa-solid fa-trash" onclick="deleteT(event)"></i>
-        <i class="fa-solid fa-pen-to-square" onclick="edit_joueur(event)"></i>
-        </div>
-    `;
+        createplayer(playerElement, playerData);
     }
-
     positionDiv.appendChild(playerElement);
-
     playerCounts[positionClass]++;
 }
 
@@ -157,22 +143,39 @@ function addPlayerToReserve(playerData) {
 
     switch (position) {
         case 'RW':
+            positionClass = 'RW';
+            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            break;
         case 'LW':
+            positionClass = 'LW';
+            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            break;
         case 'CF':
-            positionClass = 'Attaque';
+            positionClass = 'CF';
             backgroundImage = 'url("./images/badge_ballon_dor.webp")';
             break;
         case 'CM':
-        case 'CDM':
-            positionClass = 'milieu';
+            positionClass = 'CM';
             backgroundImage = 'url("./images/badge_gold.webp")';
             break;
-        case 'CB':
-            positionClass = 'Defense';
+        case 'CB1':
+            positionClass = 'CB1';
+            backgroundImage = 'url("./images/gold87.png")';
+            break;
+        case 'CB2':
+            positionClass = 'CB2';
+            backgroundImage = 'url("./images/gold87.png")';
+            break;
+            case 'LB':
+            positionClass = 'LB';
+            backgroundImage = 'url("./images/gold87.png")';
+            break;
+            case 'RB':
+            positionClass = 'RB';
             backgroundImage = 'url("./images/gold87.png")';
             break;
         case 'GK':
-            positionClass = 'garde';
+            positionClass = 'GK';
             backgroundImage = 'url("./images/badge_total_rush.webp")';
             break;
         default:
@@ -181,9 +184,8 @@ function addPlayerToReserve(playerData) {
     }
     const reserveDiv = document.querySelector(".Joueurs_de_reserve");
 
-    const playerElement = document.createElement("div");
+    let playerElement = document.createElement("div");
     playerElement.classList.add("player-item");
-    playerElement.setAttribute("onclick", "modifier(event)");
 
     playerElement.style.backgroundImage = backgroundImage;
     playerElement.style.backgroundSize = 'cover';
@@ -191,71 +193,39 @@ function addPlayerToReserve(playerData) {
     playerElement.style.backgroundRepeat = 'no-repeat';
 
     if (positionSelect.value === 'GK') {
-            playerElement.innerHTML = `
-            <div class="info">
-            <img class="photo_joueur" src="${playerData.photo}" alt="" width="50" height="50">
-            <strong>${playerData.name}</strong>
-            <div class="information_joueur">
-            <p>DIV<span> ${playerData.diving}</span></p>
-            <p>HAN<span> ${playerData.handling}</span></p>
-            <p>KIC<span> ${playerData.kicking}</span></p>
-            <p>REF<span> ${playerData.reflexes}</span></p>
-            <p>SPE<span> ${playerData.speed}</span></p>
-            <p>POS<span> ${playerData.positioning}</span></p>
-            </div>
-            <strong class="position_joueur">${playerData.position}</strong>
-            </div>
-            <div class="action">
-            <i class="fa-solid fa-trash" onclick="delete_joueur_reserve(event)"></i>
-            <i class="fa-solid fa-pen-to-square" onclick="edit_GK(event)"></i>
-            </div>
-        `;
-        } else {
-            playerElement.innerHTML = `
-            <div class="info">
-            <img class="photo_joueur" src="${playerData.photo}" alt="" width="50" height="50">
-            <strong>${playerData.name}</strong>
-            <div class="information_joueur">
-            <p>PAC<span> ${playerData.pace}</span></p>
-            <p>SHO<span> ${playerData.shooting}</span></p>
-            <p>PAS<span> ${playerData.passing}</span></p>
-            <p>DRI<span> ${playerData.dribbling}</span></p>
-            <p>DEF<span> ${playerData.defending}</span></p>
-            <p>PHY<span> ${playerData.physical}</span></p>
-            </div>
-            <strong class="position_joueur">${playerData.position}</strong>
-            </div>
-            <div class="action">
-            <i class="fa-solid fa-trash" onclick="delete_joueur_reserve(event)"></i>
-            <i class="fa-solid fa-pen-to-square" onclick="edit_joueur(event)"></i>
-            </div>`
-            ;
+        createGK(playerElement,playerData)
+    } else {
+        createplayer(playerElement,playerData)
         }
     reserveDiv.appendChild(playerElement);
 }
 
 function deleteT(event) {
     let playerElement = event.currentTarget.closest(".player-item");
-
     const position = playerElement.querySelector(".position_joueur").textContent;
     
     if (position) {
         if (position === 'CF') {
-            alert(`You can add another player in the ${position} position.`);
-            playerCounts['Attaque']--; 
+            playerCounts['CF']--; 
+        } else if (position === 'RW') {
+            playerCounts['RW']--;
+        } else if (position === 'LW') {
+            playerCounts['LW']--;
         } else if (position === 'CM') {
-            alert(`You can add another player in the ${position} position.`);
-            playerCounts['milieu']--;
-        } else if (position === 'CB') {
-            alert(`You can add another player in the ${position} position.`);
-            playerCounts['Defense']--;
+            playerCounts['CM']--;
+        } else if (position === 'LB') {
+            playerCounts['LB']--;
+        } else if (position === 'CB1') {
+            playerCounts['CB1']--;
+        } else if (position === 'CB2') {
+            playerCounts['CB2']--;
+        } else if (position === 'RB') {
+            playerCounts['RB']--;
         } else if (position === 'GK') {
-            alert(`You can add another player in the ${position} position.`);
-            playerCounts['garde']--;
+            playerCounts['GK']--;
         }
     }
     playerElement.remove();
-
 }
 function delete_joueur_reserve(event) {
     let playerElement = event.currentTarget.closest(".player-item");
@@ -263,32 +233,59 @@ function delete_joueur_reserve(event) {
 }
 
 function edit_GK(event) {
-    alert('ggggggggggggg')
 
-    currentRow = event.currentTarget.closest("tr");
-    document.getElementById("name").value = currentRow.cells[0].textContent;
-    document.getElementById("photo").value = currentRow.cells[1].textContent;
-    document.getElementById("position").value = currentRow.cells[2].textContent;
-    document.getElementById("Nationality").value = currentRow.cells[3].textContent;
-    document.getElementById("flag").value = currentRow.cells[1].textContent;
-    document.getElementById("club").value = currentRow.cells[2].textContent;
-    document.getElementById("logo").value = currentRow.cells[3].textContent;
-    document.getElementById("rating").value = currentRow.cells[1].textContent;
-    document.getElementById("pace").value = currentRow.cells[2].textContent;
-    document.getElementById("Tir").value = currentRow.cells[3].textContent;
-    document.getElementById("passing").value = currentRow.cells[1].textContent;
-    document.getElementById("dribbling").value = currentRow.cells[2].textContent;
-    document.getElementById("defending").value = currentRow.cells[3].textContent;
-    document.getElementById("physical").value = currentRow.cells[1].textContent;
-    document.getElementById("diving").value = currentRow.cells[2].textContent;
-    document.getElementById("handling").value = currentRow.cells[3].textContent;
-    document.getElementById("kicking").value = currentRow.cells[3].textContent;
-    document.getElementById("reflexes").value = currentRow.cells[1].textContent;
-    document.getElementById("speed").value = currentRow.cells[2].textContent;
-    document.getElementById("positioning").value = currentRow.cells[3].textContent;
+    const nameElements = document.getElementsByClassName("name");
+    document.getElementById("name").value = nameElements[0].textContent;
+    const photoElements = document.getElementsByClassName("photo_joueur");
+    document.getElementById("photo").value = photoElements[0].src;
+    // const positionElements = document.getElementById("position");
+    // document.getElementById("position").value = positionElements[0].textContent;
+    // const NationalityElements = document.getElementsByClassName("Nationality");
+    // document.getElementById("Nationality").value = NationalityElements[0].textContent;
+    // const flagElements = document.getElementsByClassName("flag");
+    // document.getElementById("flag").value = flagElements[0].textContent;
+    // const clubElements = document.getElementsByClassName("club");
+    // document.getElementById("club").value = clubElements[0].textContent;
+    // const logoElements = document.getElementsByClassName("logo");
+    // document.getElementById("logo").value = logoElements[0].textContent;
+    // const ratingElements = document.getElementsByClassName("rating");
+    // document.getElementById("rating").value = ratingElements[0].textContent;
+    // const paceElements = document.getElementsByClassName("pace");
+    // document.getElementById("pace").value = paceElements[0].textContent;
+    // const TirElements = document.getElementsByClassName("Tir");
+    // document.getElementById("Tir").value = TirElements[0].textContent;
+    // const passingElements = document.getElementsByClassName("passing");
+    // document.getElementById("passing").value = passingElements[0].textContent;
+    // const dribblingElements = document.getElementsByClassName("dribbling");
+    // document.getElementById("dribbling").value = dribblingElements[0].textContent;
+    // const defendingElements = document.getElementsByClassName("defending");
+    // document.getElementById("defending").value = defendingElements[0].textContent;
+    // const physicalElements = document.getElementsByClassName("physical");
+    // document.getElementById("physical").value = physicalElements[0].textContent;
+    const divingElements = document.getElementsByClassName("d");
+    document.getElementById("diving").value = divingElements[0].textContent;
+    const handlingElements = document.getElementsByClassName("handling");
+    document.getElementById("handling").value = handlingElements[0].textContent;
+    const kickingElements = document.getElementsByClassName("kicking");
+    document.getElementById("kicking").value = kickingElements[0].textContent;
+    const reflexesElements = document.getElementsByClassName("reflexes");
+    document.getElementById("reflexes").value = reflexesElements[0].textContent;
+    const speedElements = document.getElementsByClassName("speed");
+    document.getElementById("speed").value = speedElements[0].textContent;
+    const positioningElements = document.getElementsByClassName("positioning");
+    document.getElementById("positioning").value = positioningElements[0].textContent;
 
-    document.getElementById("club").style.display = "none";
-    document.getElementById("editButton").style.display = "inline-block";
+    // document.getElementById("defending").value = .textContent;
+    // document.getElementById("physical").value = .textContent;
+    // document.getElementById("diving").value = .textContent;
+    // document.getElementById("handling").value = .textContent;
+    // document.getElementById("kicking").value = .textContent;
+    // document.getElementById("reflexes").value = .textContent;
+    // document.getElementById("speed").value = .textContent;
+    // document.getElementById("positioning").value = .textContent;
+
+    // document.getElementById("club").style.display = "none";
+    // document.getElementById("editButton").style.display = "inline-block";
 }
 
 function save_GK() {
@@ -303,7 +300,7 @@ function save_GK() {
 }
 
 function edit_joueur(event) {
-    alert('hhhhhhhhhh')
+
     currentRow = event.currentTarget.closest("tr");
     document.getElementById("title").value = currentRow.cells[0].textContent;
     document.getElementById("description").value = currentRow.cells[1].textContent;
@@ -323,4 +320,168 @@ function save_joueur() {
     document.getElementById("editButton").style.display = "none";
     document.getElementById("ajouter").style.display = "flex";
     currentRow = null;
+}
+
+function createGK(playerElement, playerData) {
+    const infoDiv = document.createElement("div");
+    infoDiv.classList.add("info");
+
+    const img = document.createElement("img");
+    img.classList.add("photo_joueur");
+    img.src = playerData.photo;
+    img.alt = "";
+    img.width = 50;
+    img.height = 50;
+    infoDiv.appendChild(img);
+
+    const nameStrong = document.createElement("strong");
+    nameStrong.textContent = playerData.name;
+    nameStrong.classList.add("name");
+    infoDiv.appendChild(nameStrong);
+
+    const infoJoueurDiv = document.createElement("div");
+    infoJoueurDiv.classList.add("information_joueur");
+
+    const divingP = document.createElement("p");
+    divingP.innerHTML = `DIV<span class="d"> ${playerData.diving}</span>`;
+    divingP.classList.add("diving");
+    infoJoueurDiv.appendChild(divingP);
+
+    const handlingP = document.createElement("p");
+    handlingP.innerHTML = `HAN<span> ${playerData.handling}</span>`;
+    handlingP.classList.add("handling");
+
+    infoJoueurDiv.appendChild(handlingP);
+
+    const kickingP = document.createElement("p");
+    kickingP.innerHTML = `KIC<span> ${playerData.kicking}</span>`;
+    kickingP.classList.add("kicking");
+
+    infoJoueurDiv.appendChild(kickingP);
+
+    const reflexesP = document.createElement("p");
+    reflexesP.innerHTML = `REF<span> ${playerData.reflexes}</span>`;
+    reflexesP.classList.add("reflexesP")
+    infoJoueurDiv.appendChild(reflexesP);
+
+    const speedP = document.createElement("p");
+    speedP.innerHTML = `SPE<span> ${playerData.speed}</span>`;
+    infoJoueurDiv.appendChild(speedP);
+
+    const positioningP = document.createElement("p");
+    positioningP.innerHTML = `POS<span> ${playerData.positioning}</span>`;
+    infoJoueurDiv.appendChild(positioningP);
+
+    infoDiv.appendChild(infoJoueurDiv);
+
+    const position = document.createElement("strong");
+    position.classList.add("position_joueur");
+    position.textContent = playerData.position;
+    infoDiv.appendChild(position);
+
+    const actionDiv = document.createElement("div");
+    actionDiv.classList.add("action");
+
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa-solid", "fa-trash");
+    let positionClass = document.getElementById('position').value
+
+    if(playerCounts[playerData.position] >= maxPlayers[playerData.position]){
+        trashIcon.onclick = function(event) {
+            delete_joueur_reserve(event);
+        };
+        actionDiv.appendChild(trashIcon);
+    }else{
+        trashIcon.onclick = function(event) {
+            deleteT(event);
+        };
+        actionDiv.appendChild(trashIcon);
+    }
+
+    const editIcon = document.createElement("i");
+    editIcon.classList.add("fa-solid", "fa-pen-to-square");
+    editIcon.onclick = function(event) {
+        edit_GK(event);
+    };
+    actionDiv.appendChild(editIcon);
+    
+    playerElement.appendChild(infoDiv);
+    playerElement.appendChild(actionDiv);
+}
+
+function createplayer(playerElement, playerData){
+    const infoDiv = document.createElement("div");
+    infoDiv.classList.add("info");
+
+    const img = document.createElement("img");
+    img.classList.add("photo_joueur");
+    img.src = playerData.photo;
+    img.alt = "";
+    img.width = 50;
+    img.height = 50;
+    infoDiv.appendChild(img);
+
+    const nameStrong = document.createElement("strong");
+    nameStrong.textContent = playerData.name;
+    infoDiv.appendChild(nameStrong);
+
+    const infoJoueurDiv = document.createElement("div");
+    infoJoueurDiv.classList.add("information_joueur");
+
+    const paceP = document.createElement("p");
+    paceP.innerHTML = `PAC<span> ${playerData.pace}</span>`;
+    infoJoueurDiv.appendChild(paceP);
+
+    const shootingP = document.createElement("p");
+    shootingP.innerHTML = `SHO<span> ${playerData.shooting}</span>`;
+    infoJoueurDiv.appendChild(shootingP);
+
+    const passingP = document.createElement("p");
+    passingP.innerHTML = `PAS<span> ${playerData.passing}</span>`;
+    infoJoueurDiv.appendChild(passingP);
+
+    const dribblingP = document.createElement("p");
+    dribblingP.innerHTML = `DRI<span> ${playerData.dribbling}</span>`;
+    infoJoueurDiv.appendChild(dribblingP);
+
+    const defendingP = document.createElement("p");
+    defendingP.innerHTML = `DEF<span> ${playerData.defending}</span>`;
+    infoJoueurDiv.appendChild(defendingP);
+
+    const physicalP = document.createElement("p");
+    physicalP.innerHTML = `PHY<span> ${playerData.physical}</span>`;
+    infoJoueurDiv.appendChild(physicalP);
+
+    infoDiv.appendChild(infoJoueurDiv);
+
+    const position = document.createElement("strong");
+    position.classList.add("position_joueur");
+    position.textContent = playerData.position;
+    infoDiv.appendChild(position);
+
+    const actionDiv = document.createElement("div");
+    actionDiv.classList.add("action");
+
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa-solid", "fa-trash");
+    if(playerCounts[playerData.position] >= maxPlayers[playerData.position]){
+        trashIcon.onclick = function(event) {
+            delete_joueur_reserve(event);
+        };
+        actionDiv.appendChild(trashIcon);
+    }else{
+        
+        trashIcon.onclick = function(event) {
+            deleteT(event);
+        };
+        actionDiv.appendChild(trashIcon);
+    }
+    const editIcon = document.createElement("i");
+    editIcon.classList.add("fa-solid", "fa-pen-to-square");
+    editIcon.onclick = function(event) {
+        edit_joueur(event);
+    };
+    actionDiv.appendChild(editIcon);
+    playerElement.appendChild(infoDiv);
+    playerElement.appendChild(actionDiv);
 }

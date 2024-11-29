@@ -19,28 +19,35 @@
             <div class="Terrain">
                 <!-- 3 défenseurs -->
                 <div class="Attaque">
+                    <div class="LW Attaq"></div>
+                    <div class="CF attaq"></div>
+                    <div class="RW attaq"></div>
                 </div>
     
                 <!-- 4 milieux -->
-                <div class="milieu">
+                <div class="CM">
                 </div>
     
                 <!-- 4 attaquants -->
                 <div class="Defense">
+                    <div class="LB"></div>
+                    <div class="CB1"></div>
+                    <div class="CB2"></div>
+                    <div class="RB"></div>
                 </div>
     
                 <!-- gardien -->
-                <div class="garde">
+                <div class="GK">
                 </div>
             </div>
             <div class="container">
+                <h1>Entrez les informations du joueur</h1>
                 <form id="playerForm">
-                    <h1>Entrez les informations du joueur</h1>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="name">Nom :</label>
                         <input type="text" id="name" name="name" placeholder="Entrez le nom du joueur" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="photo">URL de la photo :</label>
                         <select id="photo">
                             <option value="https://cdn.sofifa.net/players/158/023/25_120.png">Lionel Messi</option>
@@ -71,35 +78,38 @@
                             <option value="https://cdn.sofifa.net/players/230/621/25_120.png">Gianluigi Donnarumma</option>
                           </select>                          
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="position">Position :</label>
                         <select class="wid" id="position" name="position" required>
-                            <option value="">Sélectionner la position</option>
-                            <option value="RW">Ailier droit</option>
-                            <option value="LW">Ailier gauche</option>
-                            <option value="CF">Attaquant central</option>
-                            <option value="CM">Milieu central</option>
-                            <option value="CB">Défenseur central</option>
-                            <option value="GK">Gardien de but</option>
+                            <option value="" >Sélectionner la position</option>
+                            <option value="CF">CF</option>
+                            <option value="RW">RW</option>
+                            <option value="LW">LW</option>
+                            <option value="CM">CM</option>
+                            <option value="CB1">CB1</option>
+                            <option value="CB2">CB2</option>
+                            <option value="LB">LB</option>
+                            <option value="RB">RB</option>
+                            <option value="GK">GK</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="nationality">Nationalité :</label>
                         <input type="text" id="Nationality" name="Nationality" placeholder="Entrez la nationalité" >
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="flag">URL du drapeau :</label>
                         <input type="url" id="flag" name="flag" placeholder="Entrez l'URL du drapeau" >
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="club">Club :</label>
                         <input type="text" id="club" name="club" placeholder="Entrez le nom du club" >
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="logo">URL du logo du club :</label>
                         <input type="url" id="logo" name="logo" placeholder="Entrez l'URL du logo du club" >
                     </div>
-                    <div class="form-group">
+                    <div class="form-group group1">
                         <label for="rating">Note :</label>
                         <input type="number" id="rating" name="rating" min="0" max="100" placeholder="Entrez la note" >
                     </div>
@@ -162,28 +172,6 @@
         <div class="Joueurs_de_reserve">
             
         </div>
-        <div id="editForm" style="display:none;">
-            <label for="editPace">Pace:</label>
-            <input type="number" id="editPace">
-            
-            <label for="editShooting">Shooting:</label>
-            <input type="number" id="editShooting">
-            
-            <label for="editPassing">Passing:</label>
-            <input type="number" id="editPassing">
-            
-            <label for="editDribbling">Dribbling:</label>
-            <input type="number" id="editDribbling">
-            
-            <label for="editDefending">Defending:</label>
-            <input type="number" id="editDefending">
-            
-            <label for="editPhysical">Physical:</label>
-            <input type="number" id="editPhysical">
-            
-            <button id="saveChanges">Save Changes</button>
-            <button id="cancelChanges">Cancel</button>
-        </div>
     </main>
     
     <footer class="footer">
@@ -192,7 +180,7 @@
                 <h4>À propos de nous</h4>
                 <p>Ce site permet aux utilisateurs de créer et de gérer des équipes de football.</p>
             </div>
-            <div class="footer-column">
+            <!-- <div class="footer-column">
                 <h4>Liens utiles</h4>
                 <ul>
                     <li><a href="#">Accueil</a></li>
@@ -208,7 +196,7 @@
                     <a href="#" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a>
                     <a href="#" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Football Manager - Tous droits réservés</p>
