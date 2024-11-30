@@ -38,14 +38,14 @@ document.getElementById("playerForm").addEventListener("submit", function(event)
     };
 if(playerData.position === 'GK'){
     if(!playerData.name || !playerData.photo || !playerData.position || !playerData.flag || !playerData.club || !playerData.rating || !playerData.diving || !playerData.handling || !playerData.kicking || !playerData.reflexes || !playerData.speed || !playerData.positioning){
-        alert('chi input khawya')
+        alert('Remplissez les informations du joueur')
     }else{
         displayPlayerData(playerData);
         document.getElementById("playerForm").reset();
     }
 }else{
     if(!playerData.name || !playerData.photo || !playerData.position || !playerData.flag || !playerData.club || !playerData.rating || !playerData.pace || !playerData.shooting || !playerData.passing || !playerData.dribbling || !playerData.defending || !playerData.physical){
-        alert('chi input khawya')
+        alert('Remplissez les informations du joueur')
     }else{
         displayPlayerData(playerData);
         document.getElementById("playerForm").reset();
@@ -121,11 +121,8 @@ function displayPlayerData(playerData) {
     playerElement.style.backgroundPosition = 'center';
     playerElement.style.backgroundRepeat = 'no-repeat';
 
-    if (positionSelect.value === 'GK') {
-        createGK(playerElement, playerData);
-    } else {
-        createplayer(playerElement, playerData);
-    }
+    if (positionSelect.value === 'GK') {createGK(playerElement, playerData);} 
+    else {createplayer(playerElement, playerData);}
     positionDiv.appendChild(playerElement);
     playerCounts[positionClass]++;
 }
@@ -185,11 +182,8 @@ function addPlayerToReserve(playerData) {
     playerElement.style.backgroundPosition = 'center';
     playerElement.style.backgroundRepeat = 'no-repeat';
 
-    if (positionSelect.value === 'GK') {
-        createGK(playerElement,playerData)
-    } else {
-        createplayer(playerElement,playerData)
-        }
+    if (positionSelect.value === 'GK') {createGK(playerElement,playerData)} 
+    else {createplayer(playerElement,playerData)}
     reserveDiv.appendChild(playerElement);
 }
 
@@ -198,25 +192,15 @@ function deleteT(event) {
     const position = playerElement.querySelector(".position_joueur").textContent;
     
     if (position) {
-        if (position === 'CF') {
-            playerCounts['CF']--; 
-        } else if (position === 'RW') {
-            playerCounts['RW']--;
-        } else if (position === 'LW') {
-            playerCounts['LW']--;
-        } else if (position === 'CM') {
-            playerCounts['CM']--;
-        } else if (position === 'LB') {
-            playerCounts['LB']--;
-        } else if (position === 'CB1') {
-            playerCounts['CB1']--;
-        } else if (position === 'CB2') {
-            playerCounts['CB2']--;
-        } else if (position === 'RB') {
-            playerCounts['RB']--;
-        } else if (position === 'GK') {
-            playerCounts['GK']--;
-        }
+        if (position === 'CF') {playerCounts['CF']--;}
+        else if (position === 'RW') {playerCounts['RW']--;}
+        else if (position === 'LW') {playerCounts['LW']--;} 
+        else if (position === 'CM') {playerCounts['CM']--;} 
+        else if (position === 'LB') {playerCounts['LB']--;} 
+        else if (position === 'CB1') {playerCounts['CB1']--;} 
+        else if (position === 'CB2') {playerCounts['CB2']--;} 
+        else if (position === 'RB') {playerCounts['RB']--;} 
+        else if (position === 'GK') {playerCounts['GK']--;}
     }
     playerElement.remove();
 }
@@ -226,7 +210,6 @@ function delete_joueur_reserve(event) {
 }
 let currentRow;
 function edit_GK(event) {
-    
     currentRow = event.currentTarget.closest(".player-item");
 
     let nameElement = currentRow.querySelector(".name").textContent;
@@ -263,6 +246,7 @@ function edit_GK(event) {
     if (positionSelect.value === 'GK') {
         goalkeeperFields.forEach(field => field.style.display = 'flex');
         playerFields.forEach(field => field.style.display = 'none');
+        positionSelect.disabled = true;
     } else {
         goalkeeperFields.forEach(field => field.style.display = 'none');
         playerFields.forEach(field => field.style.display = 'flex');
@@ -284,7 +268,7 @@ function save_GK() {
     let speedElement = parseInt(document.getElementById("speed").value);
     let positioningElement = parseInt(document.getElementById("positioning").value);
     if(!nameElement || !photoElement || !positionElement || !clubElement || !flagElement || !ratingElement || !divingElement || !handlingElement || !kickingElement || !reflexesElement || !speedElement || !positioningElement){
-        alert('input vide')
+        alert('Remplissez les informations du joueur')
     }else{
         currentRow.querySelector(".name").textContent = nameElement;
         currentRow.querySelector(".photo_joueur").src = photoElement;
@@ -302,6 +286,7 @@ function save_GK() {
         document.getElementById("addButton").style.display = "inline-block";
         document.getElementById("btn_GK").style.display = "none";
         document.getElementById("btn_joueur").style.display = "none";
+        positionSelect.disabled = false;
         currentRow = null;
     }
 }
@@ -344,6 +329,7 @@ function edit_joueur(event) {
     } else {
         goalkeeperFields.forEach(field => field.style.display = 'none');
         playerFields.forEach(field => field.style.display = 'flex');
+        positionSelect.disabled = true;
     }
 }
 
@@ -362,7 +348,7 @@ function save_joueur() {
     let defendingElement = parseInt(document.getElementById("defending").value);
     let physicalElement = parseInt(document.getElementById("physical").value);
     if(!nameElement || !photoElement || !positionElement || !flagElement || !clubElement || !ratingElement || !shootingElement || !paceElement || !passingElement || !dribblingElement || !defendingElement || !physicalElement){
-        alert("input vide")
+        alert("Remplissez les informations du joueur")
     }else{
         currentRow.querySelector(".name").textContent = nameElement;
         currentRow.querySelector(".photo_joueur").src = photoElement;
@@ -380,9 +366,9 @@ function save_joueur() {
         document.getElementById("addButton").style.display = "inline-block";
         document.getElementById("btn_joueur").style.display = "none";
         document.getElementById("btn_GK").style.display = "none";
+        positionSelect.disabled = false;
         currentRow = null;
     }
-    
 }
 
 function createGK(playerElement, playerData) {
@@ -584,9 +570,7 @@ function createplayer(playerElement, playerData){
     }
     const editIcon = document.createElement("i");
     editIcon.classList.add("fa-solid", "fa-pen-to-square");
-    editIcon.onclick = function(event) {
-        edit_joueur(event);
-    };
+    editIcon.onclick = function(event) {edit_joueur(event)};
     actionDiv.appendChild(editIcon);
     playerElement.appendChild(infoDiv);
     playerElement.appendChild(actionDiv);
