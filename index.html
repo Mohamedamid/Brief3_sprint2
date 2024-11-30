@@ -13,30 +13,22 @@
             <img class="img-logo" src="images/EAFC25-logo.png" alt="Logo du jeu">
         </div>
     </nav>
-    
     <main>
         <div class="main">
             <div class="Terrain">
-                <!-- 3 défenseurs -->
                 <div class="Attaque">
                     <div class="LW Attaq"></div>
                     <div class="CF attaq"></div>
                     <div class="RW attaq"></div>
                 </div>
-    
-                <!-- 4 milieux -->
                 <div class="CM">
                 </div>
-    
-                <!-- 4 attaquants -->
                 <div class="Defense">
                     <div class="LB"></div>
                     <div class="CB1"></div>
                     <div class="CB2"></div>
                     <div class="RB"></div>
                 </div>
-    
-                <!-- gardien -->
                 <div class="GK">
                 </div>
             </div>
@@ -45,7 +37,7 @@
                 <form id="playerForm">
                     <div class="form-group group1">
                         <label for="name">Nom :</label>
-                        <input type="text" id="name" name="name" placeholder="Entrez le nom du joueur" required>
+                        <input type="text" id="name" name="name" placeholder="Entrez le nom du joueur" >
                     </div>
                     <div class="form-group group1">
                         <label for="photo">URL de la photo :</label>
@@ -80,7 +72,7 @@
                     </div>
                     <div class="form-group group1">
                         <label for="position">Position :</label>
-                        <select class="wid" id="position" name="position" required>
+                        <select class="wid" id="position" name="position" >
                             <option value="" >Sélectionner la position</option>
                             <option value="CF">CF</option>
                             <option value="RW">RW</option>
@@ -94,24 +86,64 @@
                         </select>
                     </div>
                     <div class="form-group group1">
-                        <label for="nationality">Nationalité :</label>
-                        <input type="text" id="Nationality" name="Nationality" placeholder="Entrez la nationalité" >
-                    </div>
-                    <div class="form-group group1">
                         <label for="flag">URL du drapeau :</label>
-                        <input type="url" id="flag" name="flag" placeholder="Entrez l'URL du drapeau" >
+                        <select value="" id="flag" name="flag">
+                            <option value="https://cdn.sofifa.net/flags/ar.png">Argentina</option>
+                            <option value="https://cdn.sofifa.net/flags/pt.png">Portugal</option>
+                            <option value="https://cdn.sofifa.net/flags/be.png">Belgium</option>
+                            <option value="https://cdn.sofifa.net/flags/fr.png">France</option>
+                            <option value="https://cdn.sofifa.net/flags/nl.png">Netherlands</option>
+                            <option value="https://cdn.sofifa.net/flags/de.png">Germany</option>
+                            <option value="https://cdn.sofifa.net/flags/br.png">Brazil</option>
+                            <option value="https://cdn.sofifa.net/flags/eg.png">Egypt</option>
+                            <option value="https://cdn.sofifa.net/flags/ca.png">Canada</option>
+                            <option value="https://cdn.sofifa.net/flags/si.png">Slovenia</option>
+                            <option value="https://cdn.sofifa.net/flags/hr.png">Croatia</option>
+                            <option value="https://cdn.sofifa.net/flags/ma.png">Morocco</option>
+                            <option value="https://cdn.sofifa.net/flags/no.png">Norway</option>
+                            <option value="https://cdn.sofifa.net/flags/gb-eng.png">England</option>
+                            <option value="https://cdn.sofifa.net/flags/it.png">Italy</option>
+                          </select>
                     </div>
                     <div class="form-group group1">
                         <label for="club">Club :</label>
-                        <input type="text" id="club" name="club" placeholder="Entrez le nom du club" >
-                    </div>
-                    <div class="form-group group1">
-                        <label for="logo">URL du logo du club :</label>
-                        <input type="url" id="logo" name="logo" placeholder="Entrez l'URL du logo du club" >
+                        <select value="" id="club" name="club">
+                            <option value="https://cdn.sofifa.net/meta/team/239235/120.png">Inter Miami</option>
+                            <option value="https://cdn.sofifa.net/meta/team/2506/120.png">Al Nassr</option>
+                            <option value="https://cdn.sofifa.net/meta/team/239085/120.png">Manchester City</option>
+                            <option value="https://cdn.sofifa.net/meta/team/3468/120.png">Real Madrid</option>
+                            <option value="https://cdn.sofifa.net/meta/team/8/120.png">Liverpool</option>
+                            <option value="https://cdn.sofifa.net/meta/team/7011/120.png">Al-Hilal</option>
+                            <option value="https://cdn.sofifa.net/meta/team/503/120.png">Bayern Munich</option>
+                            <option value="https://cdn.sofifa.net/meta/team/476/120.png">Al-Ittihad</option>
+                            <option value="https://cdn.sofifa.net/meta/team/591/120.png">Paris Saint-Germain</option>
+                            <option value="https://cdn.sofifa.net/meta/team/7980/120.png">Atletico Madrid</option>
+                            <option value="https://cdn.sofifa.net/meta/team/682/120.png">PSV Eindhoven</option>
+                            <option value="https://cdn.sofifa.net/meta/team/14/120.png">Manchester United</option>
+                            <option value="https://cdn.sofifa.net/meta/team/88/120.png">Fenerbahçe</option>
+                            <option value="https://cdn.sofifa.net/meta/team/68/120.png">Barcelona</option>
+                            <option value="https://cdn.sofifa.net/meta/team/24/120.png">Juventus</option>
+                            <option value="https://cdn.sofifa.net/meta/team/61/120.png">Chelsea</option>
+                            <option value="https://cdn.sofifa.net/meta/team/103/120.png">Arsenal</option>
+                            <option value="https://cdn.sofifa.net/meta/team/107/120.png">AC Milan</option>
+                            <option value="https://cdn.sofifa.net/meta/team/231/120.png">Borussia Dortmund</option>
+                            <option value="https://cdn.sofifa.net/meta/team/146/120.png">Tottenham Hotspur</option>
+                            <option value="https://cdn.sofifa.net/meta/team/748/120.png">Lyon</option>
+                            <option value="https://cdn.sofifa.net/meta/team/66/120.png">Napoli</option>
+                            <option value="https://cdn.sofifa.net/meta/team/74/120.png">Boca Juniors</option>
+                            <option value="https://cdn.sofifa.net/meta/team/76/120.png">River Plate</option>
+                            <option value="https://cdn.sofifa.net/meta/team/105/120.png">Santos</option>
+                            <option value="https://cdn.sofifa.net/meta/team/101/120.png">Flamengo</option>
+                            <option value="https://cdn.sofifa.net/meta/team/48/120.png">Corinthians</option>
+                            <option value="https://cdn.sofifa.net/meta/team/86/120.png">Vasco da Gama</option>
+                            <option value="https://cdn.sofifa.net/meta/team/234/120.png">Sevilla</option>
+                            <option value="https://cdn.sofifa.net/meta/team/71/120.png">Ajax</option>
+                            <option value="https://cdn.sofifa.net/meta/team/1075/120.png">Shakhtar Donetsk</option>                        
+                          </select>
                     </div>
                     <div class="form-group group1">
                         <label for="rating">Note :</label>
-                        <input type="number" id="rating" name="rating" min="0" max="100" placeholder="Entrez la note" >
+                        <input type="number" id="rating" name="rating" min="40" max="100" placeholder="Entrez la note" >
                     </div>
                     <div id="playerForm" class="joueur">
                         <div class="form-group">
@@ -165,44 +197,26 @@
                             <input type="number" id="positioning" name="positioning" min="0" max="100" placeholder="Entrez le positioning">
                         </div>
                     </div>
-                    <button class="btn" type="submit">Ajouter</button>
+                    <button class="btn" type="submit" id="addButton">Ajouter</button>
+                    <button class="btn" id="btn_GK" type="button" style="display: none;" onclick="save_GK()">Modifier GK</button>
+                    <button class="btn" id="btn_joueur" type="button" style="display: none;" onclick="save_joueur()">Modifier joueur</button>
                 </form>
             </div>
         </div>
-        <div class="Joueurs_de_reserve">
-            
+        <div class="Joueurs_de_reserve">  
         </div>
     </main>
-    
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-column">
                 <h4>À propos de nous</h4>
                 <p>Ce site permet aux utilisateurs de créer et de gérer des équipes de football.</p>
             </div>
-            <!-- <div class="footer-column">
-                <h4>Liens utiles</h4>
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Joueurs</a></li>
-                    <li><a href="#">Équipes</a></li>
-                    <li><a href="#">Contactez-nous</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Suivez-nous</h4>
-                <div class="footer-social">
-                    <a href="#" target="_blank"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                    <a href="#" target="_blank"><img src="images/twitter-icon.png" alt="Twitter"></a>
-                    <a href="#" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                </div>
-            </div> -->
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Football Manager - Tous droits réservés</p>
         </div>
     </footer>
-    
     <script src="js/main.js"></script>
 </body>
 </html>
