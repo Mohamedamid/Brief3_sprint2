@@ -1,14 +1,14 @@
 var positionSelect = document.getElementById('position');
-var goalkeeperFields = document.querySelectorAll('.gardiyan');
-var playerFields = document.querySelectorAll('.joueur');
+var goalkeeperFields = document.querySelector('.gardiyan');
+var playerFields = document.querySelector('.joueur');
 
 positionSelect.addEventListener('click', function () {
     if (positionSelect.value === 'GK') {
-        goalkeeperFields.forEach(field => field.style.display = 'flex');
-        playerFields.forEach(field => field.style.display = 'none');
+        goalkeeperFields.style.display = 'flex';
+        playerFields.style.display = 'none';
     } else {
-        goalkeeperFields.forEach(field => field.style.display = 'none');
-        playerFields.forEach(field => field.style.display = 'flex');
+        goalkeeperFields.style.display = 'none';
+        playerFields.style.display = 'flex';
     }
 });
 
@@ -38,14 +38,14 @@ document.getElementById("playerForm").addEventListener("submit", function(event)
     };
 if(playerData.position === 'GK'){
     if(!playerData.name || !playerData.photo || !playerData.position || !playerData.flag || !playerData.club || !playerData.rating || !playerData.diving || !playerData.handling || !playerData.kicking || !playerData.reflexes || !playerData.speed || !playerData.positioning){
-        alert('Remplissez les informations du joueur')
+        alert(`Remplissez les informations du joueur ${playerData.position}`)
     }else{
         displayPlayerData(playerData);
         document.getElementById("playerForm").reset();
     }
 }else{
     if(!playerData.name || !playerData.photo || !playerData.position || !playerData.flag || !playerData.club || !playerData.rating || !playerData.pace || !playerData.shooting || !playerData.passing || !playerData.dribbling || !playerData.defending || !playerData.physical){
-        alert('Remplissez les informations du joueur')
+        alert(`Remplissez les informations du joueur ${playerData.position}`)
     }else{
         displayPlayerData(playerData);
         document.getElementById("playerForm").reset();
@@ -67,39 +67,39 @@ function displayPlayerData(playerData) {
     switch (position) {
         case 'RW':
             positionClass = 'RW';
-            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            backgroundImage = 'url("./images/png (1).png")';
             break;
         case 'LW':
             positionClass = 'LW';
-            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            backgroundImage = 'url("./images/png (1).png")';
             break;
         case 'CF':
             positionClass = 'CF';
-            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            backgroundImage = 'url("./images/png (1).png")';
             break;
         case 'CM':
             positionClass = 'CM';
-            backgroundImage = 'url("./images/badge_gold.webp")';
+            backgroundImage = 'url("./images/png (4).png")';
             break;
         case 'CB1':
             positionClass = 'CB1';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
         case 'CB2':
             positionClass = 'CB2';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
         case 'LB':
             positionClass = 'LB';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
         case 'RB':
             positionClass = 'RB';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
         case 'GK':
             positionClass = 'GK';
-            backgroundImage = 'url("./images/badge_total_rush.webp")';
+            backgroundImage = 'url("./images/png (6).png")';
             break;
         default:
             alert('Position non valide');
@@ -134,39 +134,39 @@ function addPlayerToReserve(playerData) {
     switch (position) {
         case 'RW':
             positionClass = 'RW';
-            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            backgroundImage = 'url("./images/png (1).png")';
             break;
         case 'LW':
             positionClass = 'LW';
-            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            backgroundImage = 'url("./images/png (1).png")';
             break;
         case 'CF':
             positionClass = 'CF';
-            backgroundImage = 'url("./images/badge_ballon_dor.webp")';
+            backgroundImage = 'url("./images/png (1).png")';
             break;
         case 'CM':
             positionClass = 'CM';
-            backgroundImage = 'url("./images/badge_gold.webp")';
+            backgroundImage = 'url("./images/png (4).png")';
             break;
         case 'CB1':
             positionClass = 'CB1';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
         case 'CB2':
             positionClass = 'CB2';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
-            case 'LB':
+        case 'LB':
             positionClass = 'LB';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
-            case 'RB':
+        case 'RB':
             positionClass = 'RB';
-            backgroundImage = 'url("./images/gold87.png")';
+            backgroundImage = 'url("./images/png (5).png")';
             break;
         case 'GK':
             positionClass = 'GK';
-            backgroundImage = 'url("./images/badge_total_rush.webp")';
+            backgroundImage = 'url("./images/png (6).png")';
             break;
         default:
             alert('Position non valide');
@@ -240,16 +240,14 @@ function edit_GK(event) {
     document.getElementById("addButton").style.display = "none";
     document.getElementById("btn_joueur").style.display = "none";
     document.getElementById("btn_GK").style.display = "inline-block";
-    var positionSelect = document.getElementById('position');
-    var goalkeeperFields = document.querySelectorAll('.gardiyan');
-    var playerFields = document.querySelectorAll('.joueur');
+    
     if (positionSelect.value === 'GK') {
-        goalkeeperFields.forEach(field => field.style.display = 'flex');
-        playerFields.forEach(field => field.style.display = 'none');
+        goalkeeperFields.style.display = 'flex';
+        playerFields.style.display = 'none';
         positionSelect.disabled = true;
     } else {
-        goalkeeperFields.forEach(field => field.style.display = 'none');
-        playerFields.forEach(field => field.style.display = 'flex');
+        goalkeeperFields.style.display = 'none';
+        playerFields.style.display = 'flex';
     }
 }
 
@@ -320,15 +318,13 @@ function edit_joueur(event) {
     document.getElementById("addButton").style.display = "none";
     document.getElementById("btn_joueur").style.display = "inline-block";
     document.getElementById("btn_GK").style.display = "none";
-    var positionSelect = document.getElementById('position');
-    var goalkeeperFields = document.querySelectorAll('.gardiyan');
-    var playerFields = document.querySelectorAll('.joueur');
+    
     if (positionSelect.value === 'GK') {
-        goalkeeperFields.forEach(field => field.style.display = 'flex');
-        playerFields.forEach(field => field.style.display = 'none');
+        goalkeeperFieldsstyle.display = 'flex';
+        playerFields.style.display = 'none';
     } else {
-        goalkeeperFields.forEach(field => field.style.display = 'none');
-        playerFields.forEach(field => field.style.display = 'flex');
+        goalkeeperFields.style.display = 'none';
+        playerFields.style.display = 'flex';
         positionSelect.disabled = true;
     }
 }
